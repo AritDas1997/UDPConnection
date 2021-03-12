@@ -8,15 +8,13 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 
-//#define PORT 63500
+
 #define MAXLINE 1024
 
 using namespace std ;
 
         class Udpclient{
-//int sockfd ;
-//char buffer[MAXLINE];
-//char hello[45] ;
+
         struct sockaddr_in servaddr;
         int len , n;
 
@@ -31,7 +29,7 @@ using namespace std ;
 
 
         void Udpclient::connecter(char *argv[]){
-// len=sizeof(servaddr) ;
+
 
         if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
         perror("socket creation failed");
@@ -59,7 +57,7 @@ using namespace std ;
         void Udpclient::receive(){
         n = recvfrom(sockfd, buffer, MAXLINE,0, (struct sockaddr *)&servaddr,(socklen_t*)&len);
         buffer[n] = '\0';
-    //  cout<<buffer<<"\n";
+    
         n=0 ;
 }
 
@@ -75,12 +73,12 @@ using namespace std ;
 
         h.connecter(argv) ;
         h.send() ;
-   //  cout<<"Hello message sent to server\n";
+   
         while(1){
-//      Udpclient h ;
+
         h.receive() ;
         if(!bcmp(h.buffer, "quit", 4)){
-//      cout<<"Connection Terminated" ;
+
         exit(1) ;
         }
         }
