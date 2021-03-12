@@ -9,7 +9,7 @@
 #include <netinet/in.h>
 #include<fstream>
 
-//#define PORT  63500
+
 #define MAXLINE 1024
 
 
@@ -93,7 +93,7 @@ id.close() ;
 
         void Udpserver::connection(char *argv[]){
         char buffer[MAXLINE];
-//    char hello[45]= "quit";
+
 
         string line ;
 
@@ -122,7 +122,7 @@ id.close() ;
 
         n = recvfrom(sockfd, buffer, MAXLINE,0, ( struct sockaddr *)&cliaddr,(socklen_t*)&len);
         buffer[n] = '\0';
-  //    cout<<buffer;
+  
 
    }
 
